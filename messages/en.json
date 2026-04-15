@@ -1,0 +1,170 @@
+{
+  "nav": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "getStarted": "Get Started",
+    "language": "UA"
+  },
+  "hero": {
+    "badge": "3,200+ subscribers",
+    "title": "Strategic Western media intelligence",
+    "titleHighlight": "for decision-makers",
+    "description": "InsightRadar automatically collects, analyzes, and delivers key signals from leading Western media in Ukrainian. Daily digests for those who make decisions.",
+    "cta": "Try for free",
+    "secondaryCta": "Learn more",
+    "trustedBy": "Trusted by analysts, diplomats, and business leaders"
+  },
+  "features": {
+    "title": "Why InsightRadar",
+    "subtitle": "Everything you need for Western media monitoring in one place",
+    "items": {
+      "ai": {
+        "title": "AI Analytics",
+        "description": "AI analyzes and structures content from 20+ Western media sources"
+      },
+      "realtime": {
+        "title": "Real-time",
+        "description": "12 daily digests from 09:00 to 21:00 Kyiv time"
+      },
+      "ukrainian": {
+        "title": "In Ukrainian",
+        "description": "Full analytical summaries adapted in Ukrainian with focus on Ukraine"
+      },
+      "sources": {
+        "title": "Verified Sources",
+        "description": "CNN, BBC, Reuters, AP News, The Guardian and other leading outlets"
+      },
+      "telegram": {
+        "title": "Telegram Delivery",
+        "description": "Instant delivery via convenient Telegram channel without extra apps"
+      },
+      "analytics": {
+        "title": "Strategic Focus",
+        "description": "Geopolitics, security, economy, sanctions — everything affecting Ukraine"
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "steps": {
+      "collect": {
+        "title": "Collect",
+        "description": "System automatically collects articles from 20+ Western media sources via RSS"
+      },
+      "analyze": {
+        "title": "Analyze",
+        "description": "AI analyzes content, identifies key topics, and creates structured summaries"
+      },
+      "deliver": {
+        "title": "Deliver",
+        "description": "Ready digests arrive in your Telegram 12 times a day"
+      }
+    }
+  },
+  "pricing": {
+    "title": "Pricing Plans",
+    "subtitle": "Choose the plan that fits your needs",
+    "monthly": "mo",
+    "currency": "UAH",
+    "popular": "Popular",
+    "cta": "Buy now",
+    "ctaFree": "Start for free",
+    "storeNote": "Payment via next-mosaic.com store with Monobank support",
+    "free": {
+      "name": "Free",
+      "price": "0",
+      "description": "Get started with the product",
+      "features": [
+        "Public Telegram channel",
+        "3 digests per day",
+        "Basic topics",
+        "Subscriber community"
+      ]
+    },
+    "pro": {
+      "name": "Western Press",
+      "price": "1,200",
+      "description": "Western media monitoring",
+      "features": [
+        "Everything in Free",
+        "12 digests per day",
+        "Priority topics",
+        "Weekly strategic outlook",
+        "Email delivery",
+        "Digest archive"
+      ]
+    },
+    "premium": {
+      "name": "Western Press + Think Tanks",
+      "price": "2,800",
+      "description": "For high-level decisions",
+      "features": [
+        "Everything in Western Press",
+        "Global think tank coverage",
+        "Custom topic filters",
+        "Monthly analytical report",
+        "Direct analyst access",
+        "Custom digests"
+      ]
+    }
+  },
+  "cta": {
+    "title": "Ready to receive strategic intelligence?",
+    "description": "Join 3,200+ subscribers who already use InsightRadar for decision-making.",
+    "button": "Start for free"
+  },
+  "footer": {
+    "description": "Strategic Western media intelligence for Ukrainian decision-makers.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "All rights reserved."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Analytics, insights, and news from the InsightRadar team",
+    "readMore": "Read more",
+    "backToBlog": "Back to blog",
+    "publishedOn": "Published on"
+  },
+  "about": {
+    "title": "About InsightRadar",
+    "subtitle": "We build tools for understanding the global media landscape",
+    "mission": {
+      "title": "Our Mission",
+      "description": "Make Western media analytics accessible to every Ukrainian decision-maker. We believe that understanding the external media environment is key to strategic planning."
+    },
+    "story": {
+      "title": "Our Story",
+      "description": "InsightRadar was created in 2025 in response to the need of Ukrainian analysts, diplomats, and business leaders for systematic Western media monitoring. The product is part of the NextMosaic ecosystem."
+    },
+    "values": {
+      "title": "Our Values",
+      "accuracy": "Accuracy",
+      "accuracyDesc": "We work only with verified sources and ensure analytics quality",
+      "speed": "Speed",
+      "speedDesc": "12 digests per day — you're always up to date",
+      "focus": "Focus on Ukraine",
+      "focusDesc": "All analytics are filtered through the lens of Ukraine's interests"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have questions? We're happy to help",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "success": "Thank you! We'll get back to you soon.",
+    "info": {
+      "title": "Contact Information",
+      "email": "info@insightradar.info",
+      "telegram": "@insightradar_bot"
+    }
+  }
+}
