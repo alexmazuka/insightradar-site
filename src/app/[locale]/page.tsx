@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
+import SampleDigest from "@/components/SampleDigest";
 import Pricing from "@/components/Pricing";
 import CTA from "@/components/CTA";
 import { routing } from "@/i18n/routing";
@@ -19,6 +20,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <Hero />
       <Features />
       <HowItWorks />
+      <SampleDigest />
       <Pricing />
       <CTA />
     </>
