@@ -3,9 +3,12 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
+  basePath: isGitHubPages ? "/insightradar-site" : "",
+  assetPrefix: isGitHubPages ? "/insightradar-site/" : "",
   images: {
     unoptimized: true,
   },
