@@ -2,5 +2,5 @@
 2:I[65254,["/insightradar-site/_next/static/chunks/01xlw8hd842-c.js","/insightradar-site/_next/static/chunks/0d3shmwh5_nmn.js","/insightradar-site/_next/static/chunks/03i3eaes73c9c.js","/insightradar-site/_next/static/chunks/0a51q.65l43cu.js","/insightradar-site/_next/static/chunks/18209-9ry2pgp.js"],"default"]
 3:I[97367,["/insightradar-site/_next/static/chunks/01xlw8hd842-c.js","/insightradar-site/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/insightradar-site/_next/static/chunks/18209-9ry2pgp.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"SjimivQNQK8ZYHrjQuQHo"}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/insightradar-site/_next/static/chunks/18209-9ry2pgp.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"YhuFZCzj11hESFQ1ICJdG"}
 5:null
