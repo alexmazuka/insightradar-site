@@ -1,13 +1,18 @@
+"use client";
+
 import { useTranslations } from "next-intl";
+import { useState } from "react";
+import TrialModal from "./TrialModal";
 
 const tiers = ["free", "light", "pro", "thinktanks", "premium"] as const;
 
+// Direct product links on next-mosaic.com (provided by user).
 const storeLinks: Record<string, string> = {
-  free: "https://t.me/insightradar_bot",
-  light: "https://next-mosaic.com/",
-  pro: "https://next-mosaic.com/",
-  thinktanks: "https://next-mosaic.com/",
-  premium: "https://next-mosaic.com/",
+  free: "",
+  light: "https://next-mosaic.com/p/insightradar-light-tizhnevii-ogliad-zakhidnoyi-presi",
+  pro: "https://next-mosaic.com/p/monitoring-zakhidnoyi-presi-shchodennii-daidzhest-cnn-bbc-reuters-ukrayins-koiu",
+  thinktanks: "https://next-mosaic.com/p/think-tanks-monitoring-analitichnikh-tsentriv-svitu",
+  premium: "https://next-mosaic.com/p/insightradar-premium-zakhidna-presa-think-tanks-analitik",
 };
 
 const tierPeriod: Record<string, string> = {
@@ -20,6 +25,7 @@ const tierPeriod: Record<string, string> = {
 
 export default function Pricing() {
   const t = useTranslations("pricing");
+  const [trialOpen, setTrialOpen] = useState(false);
 
   return (
     <section id="pricing" className="py-20 bg-white">
@@ -105,27 +111,65 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <a
-                  href={storeLinks[tier]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`w-full py-2.5 rounded-lg font-semibold transition-colors text-center block text-sm ${
-                    isHighlight
-                      ? "bg-white text-primary hover:bg-white/90"
-                      : "bg-primary text-white hover:bg-primary-light"
-                  }`}
-                >
-                  {tier === "free" ? t("ctaFree") : t("cta")}
-                </a>
+                {tier === "free" ? (
+                  <button
+                    type="button"
+                    onClick={() => setTrialOpen(true)}
+                    className="w-full py-2.5 rounded-lg font-semibold transition-colors text-center block text-sm bg-primary text-white hover:bg-primary-light"
+                  >
+                    {t("ctaFree")}
+                  </button>
+                ) : (
+                  <a
+                    href={storeLinks[tier]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full py-2.5 rounded-lg font-semibold transition-colors text-center block text-sm ${
+                      isHighlight
+                        ? "bg-white text-primary hover:bg-white/90"
+                        : "bg-primary text-white hover:bg-primary-light"
+                    }`}
+                  >
+                    {t("cta")}
+                  </a>
+                )}
+
+                {tier !== "free" && (
+                  <div className={`mt-3 flex items-center justify-center gap-1.5 text-[10px] ${
+                    isHighlight ? "text-white/70" : "text-text-muted"
+                  }`}>
+                    <svg className="w-3 h-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <span>{t("secureBadge")}</span>
+                  </div>
+                )}
               </div>
             );
           })}
         </div>
 
-        <p className="text-center text-sm text-text-muted mt-8">
-          {t("storeNote")}
-        </p>
+        <div className="max-w-3xl mx-auto mt-10 bg-surface border border-border rounded-xl p-5">
+          <div className="flex items-start gap-3">
+            <svg className="w-6 h-6 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-text mb-1">
+                {t("partnerNote")}
+              </p>
+              <p className="text-xs text-text-muted mb-2">
+                {t("storeNote")}
+              </p>
+              <p className="text-xs text-text-muted font-mono">
+                {t("paymentMethods")}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <TrialModal open={trialOpen} onClose={() => setTrialOpen(false)} />
     </section>
   );
 }

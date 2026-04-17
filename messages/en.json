@@ -82,7 +82,30 @@
     "ctaFree": "Try for free",
     "trialNote": "3 days free",
     "annualSave": "Save 30%",
-    "storeNote": "Payment via next-mosaic.com store with Monobank support",
+    "storeNote": "Payment via secure next-mosaic.com store (official NextMosaic ecosystem shop) with Monobank Acquiring",
+    "secureBadge": "Secure payment",
+    "paymentMethods": "Visa • Mastercard • Apple Pay • Google Pay",
+    "partnerNote": "Payment processed via next-mosaic.com — our official store",
+    "trialModal": {
+      "title": "Get 3 days free",
+      "subtitle": "Submit a request — we'll send access to the sample digest within an hour",
+      "name": "Your name",
+      "namePlaceholder": "John Doe",
+      "email": "Work email",
+      "emailPlaceholder": "john@company.com",
+      "company": "Company / Position",
+      "companyPlaceholder": "Company Name, Head of Strategy",
+      "telegram": "Telegram for digest delivery",
+      "telegramPlaceholder": "@username",
+      "useCase": "How do you plan to use the digest?",
+      "useCasePlaceholder": "Briefly describe your use case (analytics, PR, business decisions...)",
+      "submit": "Submit request",
+      "submitting": "Submitting...",
+      "success": "Thank you! We'll send access within an hour to your email.",
+      "error": "Submission failed. Email us at signal@insightradar.info",
+      "close": "Close",
+      "required": "Required field"
+    },
     "free": {
       "name": "Trial",
       "price": "0",
@@ -154,6 +177,7 @@
     "digestTitle": "Western Press Analytical Digest",
     "digestDate": "InsightRadar | April 16, 2026 | Past 24 hours",
     "digestStats": "140 articles → 21 in digest",
+    "planBadge": "Sample of the \"Western Press\" plan — 1,200 UAH/mo",
     "signalTitle": "Daily Signal Scale",
     "signals": [
       "[NEGATIVE] MISSILE TERROR — Russia launched one of the largest strikes of 2026: 703 targets, 18+ killed",
@@ -162,7 +186,9 @@
       "[POSITIVE] DRONE DIPLOMACY — Netherlands: €248M. Petraeus: Ukraine surpasses US in warfare concept"
     ],
     "fullVersion": "Download the full digest (16 pages, PDF)",
-    "download": "Download PDF"
+    "download": "Download PDF",
+    "tryCta": "Try 3 days free",
+    "tryNote": "Get this digest in your Telegram without payment"
   },
   "cta": {
     "title": "Ready to receive strategic intelligence?",
@@ -216,8 +242,9 @@
     "success": "Thank you! We'll get back to you soon.",
     "info": {
       "title": "Contact Information",
-      "email": "info@insightradar.info",
-      "telegram": "@insightradar_bot"
+      "email": "signal@insightradar.info",
+      "responseTime": "We respond within 24 hours on business days",
+      "website": "insightradar.info"
     }
   }
 }

@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import TrialCTA from "./TrialCTA";
 
 export default function SampleDigest() {
   const t = useTranslations("sample");
@@ -10,12 +11,25 @@ export default function SampleDigest() {
           <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
             {t("title")}
           </h2>
-          <p className="text-lg text-text-muted max-w-2xl mx-auto">
+          <p className="text-lg text-text-muted max-w-2xl mx-auto mb-4">
             {t("subtitle")}
           </p>
+          <span className="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1.5 rounded-full">
+            {t("planBadge")}
+          </span>
         </div>
 
         <div className="max-w-4xl mx-auto">
+          <div className="mb-6 text-center">
+            <TrialCTA className="inline-flex items-center gap-2 bg-accent hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              {t("tryCta")}
+            </TrialCTA>
+            <p className="text-xs text-text-muted mt-2">{t("tryNote")}</p>
+          </div>
+
           <div className="bg-white rounded-2xl shadow-lg border border-border overflow-hidden">
             <div className="bg-primary p-6 text-white">
               <div className="flex items-center justify-between flex-wrap gap-4">

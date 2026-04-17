@@ -3,12 +3,14 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
-const isGitHubPages = process.env.GITHUB_PAGES === "true";
+// Custom domain (insightradar.info) via CNAME → no basePath needed.
+// Keep USE_BASE_PATH=true fallback in case we ever revert to github.io subpath.
+const useBasePath = process.env.USE_BASE_PATH === "true";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: isGitHubPages ? "/insightradar-site" : "",
-  assetPrefix: isGitHubPages ? "/insightradar-site/" : "",
+  basePath: useBasePath ? "/insightradar-site" : "",
+  assetPrefix: useBasePath ? "/insightradar-site/" : "",
   images: {
     unoptimized: true,
   },

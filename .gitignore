@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .github/workflows/
+
+# Claude session state (local memory)
+SESSION_NOTES.md

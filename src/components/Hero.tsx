@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import TrialCTA from "./TrialCTA";
 
 export default function Hero() {
   const t = useTranslations("hero");
@@ -24,14 +24,11 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/pricing"
-              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold bg-accent hover:bg-red-600 text-white rounded-lg transition-colors"
-            >
+            <TrialCTA className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold bg-accent hover:bg-red-600 text-white rounded-lg transition-colors">
               {t("cta")}
-            </Link>
+            </TrialCTA>
             <a
-              href="#features"
+              href="#pricing"
               className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold bg-white/10 hover:bg-white/20 text-white rounded-lg border border-white/20 transition-colors"
             >
               {t("secondaryCta")}

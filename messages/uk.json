@@ -82,7 +82,30 @@
     "ctaFree": "Спробувати безкоштовно",
     "trialNote": "3 дні безкоштовно",
     "annualSave": "Економія 30%",
-    "storeNote": "Оплата через магазин next-mosaic.com з підтримкою Monobank",
+    "storeNote": "Оплата через захищений магазин next-mosaic.com (офіційний магазин екосистеми NextMosaic) з підтримкою Monobank Acquiring",
+    "secureBadge": "Захищений платіж",
+    "paymentMethods": "Visa • Mastercard • Apple Pay • Google Pay",
+    "partnerNote": "Платіж обробляється через next-mosaic.com — наш офіційний магазин",
+    "trialModal": {
+      "title": "Отримати 3 дні безкоштовно",
+      "subtitle": "Залиште заявку — ми надішлемо доступ до тестового дайджесту протягом години",
+      "name": "Ваше ім'я",
+      "namePlaceholder": "Іван Петренко",
+      "email": "Робочий email",
+      "emailPlaceholder": "ivan@company.com",
+      "company": "Компанія / Посада",
+      "companyPlaceholder": "НКЦПФР, радник голови",
+      "telegram": "Telegram для доставки дайджесту",
+      "telegramPlaceholder": "@username",
+      "useCase": "Як плануєте використовувати дайджест?",
+      "useCasePlaceholder": "Коротко опишіть задачу (аналітика, PR, бізнес-рішення...)",
+      "submit": "Надіслати заявку",
+      "submitting": "Надсилаємо...",
+      "success": "Дякуємо! Ми надішлемо доступ протягом години на вказаний email.",
+      "error": "Помилка відправки. Напишіть нам на signal@insightradar.info",
+      "close": "Закрити",
+      "required": "Обов'язкове поле"
+    },
     "free": {
       "name": "Trial",
       "price": "0",
@@ -154,6 +177,7 @@
     "digestTitle": "Аналітичний дайджест західної преси",
     "digestDate": "InsightRadar | 16 квітня 2026 | За останні 24 години",
     "digestStats": "140 матеріалів → 21 у дайджест",
+    "planBadge": "Приклад тарифу «Західна преса» — 1 200 грн/міс",
     "signalTitle": "Сигнальна шкала дня",
     "signals": [
       "[НЕГАТИВ] РАКЕТНИЙ ТЕРОР — Росія завдала одного з наймасштабніших ударів 2026 року: 703 цілі, 18+ загиблих",
@@ -162,7 +186,9 @@
       "[ПОЗИТИВ] ДРОНОВА ДИПЛОМАТІЯ — Нідерланди: €248M. Петреус: Україна випереджає США у концепції війни"
     ],
     "fullVersion": "Завантажте повну версію дайджесту (16 сторінок, PDF)",
-    "download": "Завантажити PDF"
+    "download": "Завантажити PDF",
+    "tryCta": "Спробувати 3 дні безкоштовно",
+    "tryNote": "Отримайте такий дайджест у свій Telegram без оплати"
   },
   "cta": {
     "title": "Готові отримувати стратегічну аналітику?",
@@ -216,8 +242,9 @@
     "success": "Дякуємо! Ми зв'яжемося з вами найближчим часом.",
     "info": {
       "title": "Контактна інформація",
-      "email": "info@insightradar.info",
-      "telegram": "@insightradar_bot"
+      "email": "signal@insightradar.info",
+      "responseTime": "Відповідаємо протягом 24 годин у робочі дні",
+      "website": "insightradar.info"
     }
   }
 }
