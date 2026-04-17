@@ -1,7 +1,12 @@
 self.__BUILD_MANIFEST = {
   "__rewrites": {
     "afterFiles": [],
-    "beforeFiles": [],
+    "beforeFiles": [
+      {
+        "source": "/insightradar-site//_next/:path+",
+        "destination": "/insightradar-site/_next/:path+"
+      }
+    ],
     "fallback": []
   },
   "sortedPages": [
