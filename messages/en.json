@@ -71,43 +71,44 @@
     "currency": "UAH",
     "popular": "Popular",
     "cta": "Buy now",
-    "ctaFree": "Start for free",
+    "ctaFree": "Try for free",
+    "trialNote": "3 days free trial",
     "storeNote": "Payment via next-mosaic.com store with Monobank support",
     "free": {
-      "name": "Free",
+      "name": "Trial",
       "price": "0",
-      "description": "Get started with the product",
+      "description": "3 days to explore the product",
       "features": [
-        "Public Telegram channel",
-        "3 digests per day",
-        "Basic topics",
-        "Subscriber community"
+        "3-day free trial",
+        "1 daily digest (by 08:00)",
+        "PDF digest via Telegram",
+        "Basic topics"
       ]
     },
     "pro": {
       "name": "Western Press",
       "price": "1,200",
-      "description": "Western media monitoring",
+      "description": "Daily Western media monitoring",
       "features": [
-        "Everything in Free",
-        "12 digests per day",
-        "Priority topics",
-        "Weekly strategic outlook",
-        "Email delivery",
-        "Digest archive"
+        "1 daily digest by 08:00",
+        "PDF digest via Telegram",
+        "20+ Western media sources",
+        "Analytics in Ukrainian",
+        "Digest archive",
+        "Priority topics"
       ]
     },
     "premium": {
       "name": "Western Press + Think Tanks",
       "price": "2,800",
-      "description": "For high-level decisions",
+      "description": "Weekly strategic outlook for high-level decisions",
       "features": [
         "Everything in Western Press",
-        "Global think tank coverage",
-        "Custom topic filters",
-        "Monthly analytical report",
+        "Weekly analytical report",
+        "Global think tanks (70+)",
+        "Delivery via Telegram or Email",
         "Direct analyst access",
-        "Custom digests"
+        "Custom topic filters"
       ]
     }
   },

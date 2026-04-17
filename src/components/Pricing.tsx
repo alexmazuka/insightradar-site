@@ -38,6 +38,11 @@ export default function Pricing() {
                     {t("popular")}
                   </span>
                 )}
+                {tier === "free" && (
+                  <span className="inline-block bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 self-start">
+                    {t("trialNote")}
+                  </span>
+                )}
 
                 <h3 className={`text-xl font-bold mb-2 ${isPro ? "text-white" : "text-text"}`}>
                   {t(`${tier}.name`)}
@@ -47,12 +52,20 @@ export default function Pricing() {
                 </p>
 
                 <div className="mb-6">
-                  <span className={`text-4xl font-bold ${isPro ? "text-white" : "text-text"}`}>
-                    {t(`${tier}.price`)}
-                  </span>
-                  <span className={`text-sm ${isPro ? "text-white/70" : "text-text-muted"}`}>
-                    {" "}{t("currency")}/{t("monthly")}
-                  </span>
+                  {tier === "free" ? (
+                    <span className="text-4xl font-bold text-text">
+                      {t(`${tier}.price`)} {t("currency")}
+                    </span>
+                  ) : (
+                    <>
+                      <span className={`text-4xl font-bold ${isPro ? "text-white" : "text-text"}`}>
+                        {t(`${tier}.price`)}
+                      </span>
+                      <span className={`text-sm ${isPro ? "text-white/70" : "text-text-muted"}`}>
+                        {" "}{t("currency")}/{t("monthly")}
+                      </span>
+                    </>
+                  )}
                 </div>
 
                 <ul className="space-y-3 mb-8 flex-1">
