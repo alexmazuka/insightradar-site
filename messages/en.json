@@ -82,10 +82,10 @@
     "ctaFree": "Try for free",
     "trialNote": "3 days free",
     "annualSave": "Save 30%",
-    "storeNote": "Payment via secure next-mosaic.com store (official NextMosaic ecosystem shop) with Monobank Acquiring",
+    "storeNote": "Paid directly via Monobank Acquiring — secure bank-hosted payment page.",
     "secureBadge": "Secure payment",
     "paymentMethods": "Visa • Mastercard • Apple Pay • Google Pay",
-    "partnerNote": "Payment processed via next-mosaic.com — our official store",
+    "partnerNote": "Payment is processed directly via Monobank",
     "trialModal": {
       "title": "Get 3 days free",
       "subtitle": "Submit a request — we'll send access to the sample digest within an hour",
@@ -246,5 +246,25 @@
       "responseTime": "We respond within 24 hours on business days",
       "website": "insightradar.info"
     }
+  },
+  "checkout": {
+    "title": "Subscribe",
+    "recurringNote": "This is a recurring subscription. Monobank takes the first payment, then charges automatically each period. Cancel anytime by emailing signal@insightradar.info.",
+    "email": "Work email",
+    "telegram": "Telegram for digest delivery",
+    "name": "Your name",
+    "submit": "Proceed to payment",
+    "submitting": "Preparing payment...",
+    "secure": "Secure Monobank payment • Visa • Mastercard • Apple Pay • Google Pay",
+    "error": "Could not create the payment. Please try again or email signal@insightradar.info",
+    "close": "Close"
+  },
+  "pay": {
+    "successTitle": "Thank you! Subscription active",
+    "successText": "Payment succeeded. We will send digest access to your email and Telegram within an hour.",
+    "failureTitle": "Payment not completed",
+    "failureText": "The payment failed or was canceled. Please try again or email signal@insightradar.info.",
+    "backHome": "Home",
+    "backPricing": "Pricing"
   }
 }

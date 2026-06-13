@@ -3,16 +3,17 @@
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import TrialModal from "./TrialModal";
+import CheckoutModal from "./CheckoutModal";
 
 const tiers = ["free", "light", "pro", "thinktanks", "premium"] as const;
 
-// Direct product links on next-mosaic.com (provided by user).
-const storeLinks: Record<string, string> = {
+// Map a pricing card to its server-side plan id (see src/lib/plans.ts).
+const tierPlan: Record<string, string> = {
   free: "",
-  light: "https://next-mosaic.com/p/insightradar-light-tizhnevii-ogliad-zakhidnoyi-presi",
-  pro: "https://next-mosaic.com/p/monitoring-zakhidnoyi-presi-shchodennii-daidzhest-cnn-bbc-reuters-ukrayins-koiu",
-  thinktanks: "https://next-mosaic.com/p/think-tanks-monitoring-analitichnikh-tsentriv-svitu",
-  premium: "https://next-mosaic.com/p/insightradar-premium-zakhidna-presa-think-tanks-analitik",
+  light: "light",
+  pro: "pro",
+  thinktanks: "thinktanks",
+  premium: "premium",
 };
 
 const tierPeriod: Record<string, string> = {
@@ -26,6 +27,11 @@ const tierPeriod: Record<string, string> = {
 export default function Pricing() {
   const t = useTranslations("pricing");
   const [trialOpen, setTrialOpen] = useState(false);
+  const [checkout, setCheckout] = useState<{
+    plan: string;
+    planName: string;
+    priceLabel: string;
+  } | null>(null);
 
   return (
     <section id="pricing" className="py-20 bg-white">
@@ -120,10 +126,17 @@ export default function Pricing() {
                     {t("ctaFree")}
                   </button>
                 ) : (
-                  <a
-                    href={storeLinks[tier]}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setCheckout({
+                        plan: tierPlan[tier],
+                        planName: t(`${tier}.name`),
+                        priceLabel: `${t(`${tier}.price`)} ${t("currency")}/${
+                          tierPeriod[tier] === "weekly" ? t("weekly") : t("monthly")
+                        }`,
+                      })
+                    }
                     className={`w-full py-2.5 rounded-lg font-semibold transition-colors text-center block text-sm ${
                       isHighlight
                         ? "bg-white text-primary hover:bg-white/90"
@@ -131,7 +144,7 @@ export default function Pricing() {
                     }`}
                   >
                     {t("cta")}
-                  </a>
+                  </button>
                 )}
 
                 {tier !== "free" && (
@@ -170,6 +183,13 @@ export default function Pricing() {
       </div>
 
       <TrialModal open={trialOpen} onClose={() => setTrialOpen(false)} />
+      <CheckoutModal
+        open={checkout !== null}
+        onClose={() => setCheckout(null)}
+        plan={checkout?.plan ?? null}
+        planName={checkout?.planName ?? ""}
+        priceLabel={checkout?.priceLabel ?? ""}
+      />
     </section>
   );
 }
