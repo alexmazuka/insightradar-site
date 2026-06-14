@@ -82,10 +82,10 @@
     "ctaFree": "Спробувати безкоштовно",
     "trialNote": "3 дні безкоштовно",
     "annualSave": "Економія 30%",
-    "storeNote": "Оплата через захищений магазин next-mosaic.com (офіційний магазин екосистеми NextMosaic) з підтримкою Monobank Acquiring",
+    "storeNote": "Оплата напряму через Monobank Acquiring — захищена платіжна сторінка банку.",
     "secureBadge": "Захищений платіж",
     "paymentMethods": "Visa • Mastercard • Apple Pay • Google Pay",
-    "partnerNote": "Платіж обробляється через next-mosaic.com — наш офіційний магазин",
+    "partnerNote": "Платіж обробляється безпосередньо через Monobank",
     "trialModal": {
       "title": "Отримати 3 дні безкоштовно",
       "subtitle": "Залиште заявку — ми надішлемо доступ до тестового дайджесту протягом години",
@@ -246,5 +246,25 @@
       "responseTime": "Відповідаємо протягом 24 годин у робочі дні",
       "website": "insightradar.info"
     }
+  },
+  "checkout": {
+    "title": "Оформлення підписки",
+    "recurringNote": "Це регулярна підписка. Першу оплату проведе Monobank, далі сума списуватиметься автоматично щоперіоду. Скасувати можна будь-коли, написавши на signal@insightradar.info.",
+    "email": "Робочий email",
+    "telegram": "Telegram для доставки дайджесту",
+    "name": "Ваше імʼя",
+    "submit": "Перейти до оплати",
+    "submitting": "Готуємо оплату...",
+    "secure": "Захищений платіж Monobank • Visa • Mastercard • Apple Pay • Google Pay",
+    "error": "Не вдалося створити платіж. Спробуйте ще раз або напишіть на signal@insightradar.info",
+    "close": "Закрити"
+  },
+  "pay": {
+    "successTitle": "Дякуємо! Підписку оформлено",
+    "successText": "Оплата пройшла успішно. Ми надішлемо доступ до дайджесту на вказаний email і Telegram протягом години.",
+    "failureTitle": "Оплату не завершено",
+    "failureText": "Платіж не пройшов або був скасований. Спробуйте ще раз або напишіть на signal@insightradar.info.",
+    "backHome": "На головну",
+    "backPricing": "До тарифів"
   }
 }
