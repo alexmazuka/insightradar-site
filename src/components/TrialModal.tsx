@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 // Formspree form IDs — replace with real IDs after signup at https://formspree.io
 // Until then, the form falls back to a mailto: action.
-const FORMSPREE_TRIAL_ID = process.env.NEXT_PUBLIC_FORMSPREE_TRIAL_ID || "";
+const FORMSPREE_TRIAL_ID = process.env.NEXT_PUBLIC_FORMSPREE_TRIAL_ID || "xjgjynje";
 
 interface TrialModalProps {
   open: boolean;
@@ -50,7 +50,7 @@ export default function TrialModal({ open, onClose }: TrialModalProps) {
         if (!res.ok) throw new Error("submit failed");
       } else {
         // Fallback: open mailto with form data pre-filled
-        const subject = encodeURIComponent("InsightRadar Trial Request");
+        const subject = encodeURIComponent("InsightRadar Order / Sample Request");
         const body = encodeURIComponent(
           Array.from(formData.entries())
             .map(([k, v]) => `${k}: ${v}`)
@@ -112,8 +112,8 @@ export default function TrialModal({ open, onClose }: TrialModalProps) {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <input type="hidden" name="source" value="insightradar.info/trial" />
-              <input type="hidden" name="_subject" value="InsightRadar Trial Request" />
+              <input type="hidden" name="source" value="insightradar.info/order" />
+              <input type="hidden" name="_subject" value="InsightRadar Order / Sample Request" />
 
               <div>
                 <label className="block text-sm font-medium text-text mb-1.5">
@@ -155,12 +155,11 @@ export default function TrialModal({ open, onClose }: TrialModalProps) {
 
               <div>
                 <label className="block text-sm font-medium text-text mb-1.5">
-                  {t("telegram")} <span className="text-red-500">*</span>
+                  {t("telegram")}
                 </label>
                 <input
                   type="text"
                   name="telegram"
-                  required
                   placeholder={t("telegramPlaceholder")}
                   className="w-full px-4 py-2.5 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
                 />
