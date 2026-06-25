@@ -75,7 +75,7 @@ export default function SampleDigest() {
                 <p className="text-sm text-text-muted">{t("fullVersion")}</p>
                 <div className="flex flex-wrap gap-3 justify-center sm:justify-end">
                   <a
-                    href="/sample-digest-2026-04-16.pdf"
+                    href="/sample-digest-2026-06-24.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-primary hover:bg-primary-light text-white font-semibold px-6 py-3 rounded-lg transition-colors"
