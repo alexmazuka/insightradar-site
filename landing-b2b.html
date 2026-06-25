@@ -125,6 +125,12 @@
   .band{background:linear-gradient(120deg,#13315C,#1E4FA8);color:#fff;border-radius:24px;padding:54px;text-align:center}
   .band h2{color:#fff}
   .band p{color:#C7D6EC;max-width:50ch;margin:10px auto 26px}
+  .ir-form{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:left}
+  .ir-row{display:flex;gap:12px;flex-wrap:wrap}
+  .ir-form input,.ir-form textarea{flex:1 1 220px;min-width:0;background:#fff;border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:12px 14px;font-size:15px;font-family:inherit;color:var(--text)}
+  .ir-form textarea{width:100%;resize:vertical}
+  .ir-form input:focus,.ir-form textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(19,182,163,.25)}
+  .ir-form input::placeholder,.ir-form textarea::placeholder{color:#8A97A8}
 
   /* Footer */
   footer{background:var(--ink);color:#9FB3D1;padding:54px 0 34px}
@@ -255,8 +261,9 @@
       <div class="sig neg"><div class="tag">НЕГАТИВ</div><div class="tx"><b>Енергетична криза</b> — МЕА: в Європі 6 тижнів авіапалива. Brent $98. ЄЦБ попереджає про стагфляцію.</div></div>
       <div class="sig neu"><div class="tag">НЕЙТРАЛ</div><div class="tx"><b>НАТО без США</b> — «План Б» набирає обертів за підтримки Німеччини. Італія розриває оборонну угоду з Ізраїлем.</div></div>
       <div class="sig pos"><div class="tag">ПОЗИТИВ</div><div class="tx"><b>Дронова дипломатія</b> — Нідерланди: €248M. Петреус: Україна випереджає США у концепції війни.</div></div>
-      <div style="margin-top:22px;text-align:center">
-        <a href="https://insightradar.info/sample-digest-2026-04-16.pdf" class="btn btn-light" target="_blank" rel="noopener">Завантажити приклад (PDF, 16 стор.)</a>
+      <div style="margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="https://insightradar.info/sample-digest-2026-04-16.pdf" class="btn btn-light" target="_blank" rel="noopener">Приклад брифу преси (PDF)</a>
+        <a href="https://insightradar.info/sample-think-tank-review-2026-06-21.pdf" class="btn btn-light" target="_blank" rel="noopener">Приклад огляду think tanks (PDF)</a>
       </div>
     </div>
   </div>
@@ -351,10 +358,22 @@
   <div class="wrap">
     <div class="band">
       <h2>Отримайте свіжий бриф під вашу сферу — безкоштовно</h2>
-      <p>Надішліть запит — у відповідь надійде зразок та короткий план, як адаптувати розвідку під ваші рішення.</p>
-      <div class="hero-ctas" style="justify-content:center">
-        <a href="mailto:signal@insightradar.info?subject=InsightRadar%20—%20запит%20зразка&body=Доброго%20дня!%20Цікавить%20зразок%20брифу.%20Сфера/організація:%20" class="btn btn-primary">signal@insightradar.info</a>
-      </div>
+      <p>Залиште запит — у відповідь надійде зразок та короткий план, як адаптувати розвідку під ваші рішення.</p>
+      <form class="ir-form" action="https://formspree.io/f/xjgjynje" method="POST">
+        <input type="hidden" name="_subject" value="InsightRadar — запит із сайту" />
+        <input type="hidden" name="source" value="insightradar.info" />
+        <div class="ir-row">
+          <input type="text" name="name" required placeholder="Ваше ім'я *" />
+          <input type="email" name="email" required placeholder="Робочий email *" />
+        </div>
+        <div class="ir-row">
+          <input type="text" name="organization" placeholder="Організація / посада" />
+          <input type="text" name="telegram" placeholder="Telegram (необов'язково)" />
+        </div>
+        <textarea name="message" rows="3" placeholder="Ваша сфера / завдання"></textarea>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Надіслати запит</button>
+      </form>
+      <p style="font-size:13px;margin-top:14px">Або напишіть напряму: <a href="mailto:signal@insightradar.info" style="color:#fff;text-decoration:underline">signal@insightradar.info</a></p>
     </div>
   </div>
 </section>
