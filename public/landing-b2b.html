@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>InsightRadar — медіа-розвідка для тих, хто ухвалює рішення</title>
+<meta name="description" content="Щоденна розвідка західних медіа та аналітичних центрів з експертною інтерпретацією. Не AI-зведення, а готовий до рішення бриф для дипустанов, консалтингу та аналітичних команд." />
+<!-- TODO: заміни контактний email нижче на робочий бренд-адрес (зараз стоїть особистий) -->
+<style>
+  :root{
+    --ink:#0A1A2F; --ink-2:#0F2540; --paper:#FFFFFF; --mist:#F4F7FB;
+    --line:#E2E8F2; --muted:#5B6B82; --text:#15263B;
+    --accent:#2D6CDF; --accent-d:#1E4FA8; --teal:#13B6A3;
+    --neg:#D8443B; --neu:#8A97A8; --pos:#1E9E5A;
+    --radius:16px; --maxw:1120px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--text);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{line-height:1.15;letter-spacing:-.02em;color:var(--ink)}
+  h2{font-size:clamp(26px,4vw,40px);margin-bottom:14px}
+  h3{font-size:20px}
+  p{color:var(--text)}
+  .muted{color:var(--muted)}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:13px 22px;border-radius:12px;cursor:pointer;transition:.18s;border:1px solid transparent}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-d);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn-light{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25)}
+  .btn-light:hover{background:rgba(255,255,255,.2)}
+  section{padding:84px 0}
+  .center{text-align:center;max-width:720px;margin:0 auto}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--ink);letter-spacing:-.02em}
+  .logo .dot{width:24px;height:24px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--teal),var(--accent));box-shadow:0 0 0 4px rgba(45,108,223,.12)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-size:15px;color:var(--muted);font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{display:flex;gap:12px;align-items:center}
+  .burger{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:var(--ink)}
+
+  /* Hero */
+  .hero{background:linear-gradient(165deg,#0A1A2F 0%,#13315C 60%,#1E4FA8 130%);color:#fff;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle,rgba(19,182,163,.22),transparent 62%);pointer-events:none}
+  .hero .eyebrow{color:#7FE3D6}
+  .hero h1{color:#fff;font-size:clamp(32px,5.2vw,56px);max-width:18ch}
+  .hero p.lead{font-size:clamp(17px,2.2vw,21px);color:#C7D6EC;max-width:54ch;margin:20px 0 30px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .trust{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px 22px;color:#A9BDD8;font-size:14px}
+  .trust b{color:#fff}
+
+  /* Generic grid */
+  .grid{display:grid;gap:22px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.18s}
+  .card:hover{box-shadow:0 12px 30px rgba(15,37,64,.08);transform:translateY(-2px)}
+  .card .ic{font-size:24px;margin-bottom:12px;display:block}
+  .card h3{margin-bottom:6px}
+  .card p{font-size:15px;color:var(--muted)}
+
+  .alt{background:var(--mist)}
+
+  /* Problem reframe */
+  .reframe{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .reframe ul{list-style:none;margin-top:10px}
+  .reframe li{padding:10px 0 10px 30px;position:relative;color:var(--text)}
+  .reframe li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:700}
+
+  /* Sample */
+  .sample{background:#0F2540;color:#fff;border-radius:20px;padding:34px;border:1px solid rgba(255,255,255,.08)}
+  .sample .head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:14px;margin-bottom:18px}
+  .sample .head .t{font-weight:700;font-size:18px}
+  .sample .head .m{color:#9FB3D1;font-size:14px}
+  .sig{display:flex;gap:14px;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.04);margin-bottom:12px;border-left:4px solid var(--neu)}
+  .sig.neg{border-left-color:var(--neg)}
+  .sig.pos{border-left-color:var(--pos)}
+  .sig .tag{font-size:12px;font-weight:800;letter-spacing:.06em;min-width:74px}
+  .sig.neg .tag{color:#FF8A82}
+  .sig.neu .tag{color:#B7C2D2}
+  .sig.pos .tag{color:#6FE6A2}
+  .sig .tx{font-size:14.5px;color:#E6EEFA}
+  .sig .tx b{color:#fff}
+
+  /* Pricing */
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  .plan{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);padding:28px;background:#fff}
+  .plan.feat{border:2px solid var(--accent);box-shadow:0 16px 40px rgba(45,108,223,.14);position:relative}
+  .plan .badge{position:absolute;top:-13px;left:28px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:5px 12px;border-radius:20px}
+  .plan h3{font-size:20px}
+  .plan .sub{color:var(--muted);font-size:14px;margin:4px 0 16px;min-height:40px}
+  .plan .pr{font-size:32px;font-weight:800;color:var(--ink)}
+  .plan .pr span{font-size:15px;font-weight:500;color:var(--muted)}
+  .plan ul{list-style:none;margin:18px 0 24px;display:flex;flex-direction:column;gap:10px}
+  .plan li{position:relative;padding-left:26px;font-size:14.5px;color:var(--text)}
+  .plan li::before{content:"✓";position:absolute;left:0;color:var(--pos);font-weight:800}
+  .plan .btn{width:100%;justify-content:center;margin-top:auto}
+
+  .note{font-size:13.5px;color:var(--muted);text-align:center;margin-top:18px}
+
+  /* Steps */
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{position:relative;padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+  .step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;margin-bottom:14px}
+
+  /* FAQ */
+  details{border:1px solid var(--line);border-radius:12px;padding:4px 18px;margin-bottom:12px;background:#fff}
+  summary{cursor:pointer;font-weight:600;padding:14px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--ink)}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:22px;color:var(--accent);font-weight:400}
+  details[open] summary::after{content:"–"}
+  details p{padding:0 0 16px;color:var(--muted);font-size:15px}
+
+  /* CTA band */
+  .band{background:linear-gradient(120deg,#13315C,#1E4FA8);color:#fff;border-radius:24px;padding:54px;text-align:center}
+  .band h2{color:#fff}
+  .band p{color:#C7D6EC;max-width:50ch;margin:10px auto 26px}
+
+  /* Footer */
+  footer{background:var(--ink);color:#9FB3D1;padding:54px 0 34px}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
+  footer .logo{color:#fff}
+  footer a{color:#9FB3D1}
+  footer a:hover{color:#fff}
+  .foot-cols{display:flex;gap:60px;flex-wrap:wrap}
+  .foot-cols h4{color:#fff;font-size:14px;margin-bottom:12px;letter-spacing:.04em}
+  .foot-cols a{display:block;font-size:14px;margin-bottom:8px}
+  .copy{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;font-size:13px;color:#7E92AE}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav-links.open{display:flex;flex-direction:column;position:absolute;top:66px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:18px 24px;gap:16px}
+    .burger{display:block}
+    .g3,.g4,.price-grid,.steps,.reframe,.g2{grid-template-columns:1fr}
+    section{padding:60px 0}
+    .band{padding:36px 22px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><span class="dot"></span> InsightRadar</a>
+    <nav class="nav-links" id="menu">
+      <a href="#who">Кому це</a>
+      <a href="#value">Що ви отримуєте</a>
+      <a href="#sample">Приклад</a>
+      <a href="#pricing">Тарифи</a>
+      <a href="#contact">Контакти</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Отримати зразок</a>
+      <button class="burger" id="burger" aria-label="Меню">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Стратегічна медіа-розвідка</span>
+    <h1>Бачте сигнал раніше за інших — і ухвалюйте рішення впевнено</h1>
+    <p class="lead">Щоденна розвідка західних медіа та світових аналітичних центрів з експертною інтерпретацією аналітика. Не автоматичне зведення новин, а готовий до рішення бриф: що сталося, що це означає і на що це впливає.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">Отримати зразок брифу →</a>
+      <a href="#contact" class="btn btn-light">Замовити 15-хв розмову</a>
+    </div>
+    <div class="trust">
+      <span>Досвід рівня <b>МЗС</b></span>
+      <span>Моніторинги для <b>урядових і громадських структур</b></span>
+      <span><b>70+</b> аналітичних центрів світу</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY / REFRAME -->
+<section>
+  <div class="wrap reframe">
+    <div>
+      <span class="eyebrow">Навіщо це вам</span>
+      <h2>Ви платите не за «економію часу». Ви платите за перевагу в рішенні.</h2>
+      <p class="muted">Сирих новин і AI-самарі сьогодні вистачає у всіх. Дефіцитна не інформація, а <b>інтерпретація</b>: який сигнал реальний, куди він веде і що з ним робити саме вам. Це робота досвідченого аналітика, а не RSS-стрічки.</p>
+    </div>
+    <div>
+      <ul>
+        <li>Не пропустите зсув у західній риториці, поки він ще не став новиною</li>
+        <li>Отримаєте контекст і висновок, а не список посилань</li>
+        <li>Бачите тему очима тих, хто формує політику на Заході</li>
+        <li>Економите тижні власного моніторингу — і знижуєте ризик «сліпої зони»</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="alt" id="who">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:46px">
+      <span class="eyebrow">Для кого</span>
+      <h2>Створено для тих, хто ухвалює рішення високої ставки</h2>
+      <p class="muted">Якщо помилка коштує дорого, а контекст із Заходу критичний — це для вас.</p>
+    </div>
+    <div class="grid g4">
+      <div class="card"><span class="ic">🏛️</span><h3>Дипустанови та уряд</h3><p>Швидка картина західного наративу для зовнішньополітичних рішень і комунікацій.</p></div>
+      <div class="card"><span class="ic">📈</span><h3>Консалтинг і risk-команди</h3><p>Геополітичний контекст для клієнтських звітів, due diligence та стратегій.</p></div>
+      <div class="card"><span class="ic">🧠</span><h3>Аналітичні центри</h3><p>Моніторинг 70+ think tanks світу — без години щоденного скролінгу.</p></div>
+      <div class="card"><span class="ic">🗞️</span><h3>Медіа та комунікації</h3><p>Зведення західних публікацій про Україну та регіон у єдиному документі.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section id="value">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:46px">
+      <span class="eyebrow">Що ви отримуєте</span>
+      <h2>Готовий до рішення продукт, а не потік контенту</h2>
+    </div>
+    <div class="grid g3">
+      <div class="card"><span class="ic">🚦</span><h3>Сигнальна шкала дня</h3><p>Кожна тема — з оцінкою впливу (негатив / нейтрал / позитив) і висновком «що це означає».</p></div>
+      <div class="card"><span class="ic">✍️</span><h3>Авторська інтерпретація</h3><p>Аналітик із досвідом державних моніторингів, а не безособова модель. Ви знаєте, хто і чому це пише.</p></div>
+      <div class="card"><span class="ic">🌐</span><h3>20+ медіа та 70+ центрів</h3><p>CNN, BBC, Reuters, FT, Economist, Chatham House, RAND, Carnegie, Brookings — в одному брифі.</p></div>
+      <div class="card"><span class="ic">🇺🇦</span><h3>Українською, з фокусом на вас</h3><p>Повні зведення українською з акцентом на наслідки для України та вашої сфери.</p></div>
+      <div class="card"><span class="ic">⏱️</span><h3>До початку робочого дня</h3><p>Документ у Telegram або email щоранку — відкрили, прочитали, вирішили.</p></div>
+      <div class="card"><span class="ic">🎯</span><h3>Під ваші теми</h3><p>На рівні Pro і вище — кастомні фільтри, регіони й актори під ваш конкретний запит.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE -->
+<section class="alt" id="sample">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:40px">
+      <span class="eyebrow">Як це виглядає</span>
+      <h2>Один документ — повна картина за добу</h2>
+      <p class="muted">Фрагмент сигнальної шкали з реального випуску. Повна версія — 16 сторінок аналітики.</p>
+    </div>
+    <div class="sample">
+      <div class="head">
+        <div class="t">Аналітичний бриф західної преси</div>
+        <div class="m">16 квітня 2026 · за останні 24 години · 140 матеріалів → 21 у брифі</div>
+      </div>
+      <div class="sig neg"><div class="tag">НЕГАТИВ</div><div class="tx"><b>Ракетний терор</b> — Росія завдала одного з наймасштабніших ударів 2026 року: 703 цілі, 18+ загиблих.</div></div>
+      <div class="sig neg"><div class="tag">НЕГАТИВ</div><div class="tx"><b>Енергетична криза</b> — МЕА: в Європі 6 тижнів авіапалива. Brent $98. ЄЦБ попереджає про стагфляцію.</div></div>
+      <div class="sig neu"><div class="tag">НЕЙТРАЛ</div><div class="tx"><b>НАТО без США</b> — «План Б» набирає обертів за підтримки Німеччини. Італія розриває оборонну угоду з Ізраїлем.</div></div>
+      <div class="sig pos"><div class="tag">ПОЗИТИВ</div><div class="tx"><b>Дронова дипломатія</b> — Нідерланди: €248M. Петреус: Україна випереджає США у концепції війни.</div></div>
+      <div style="margin-top:22px;text-align:center">
+        <a href="https://insightradar.info/sample-digest-2026-04-16.pdf" class="btn btn-light" target="_blank" rel="noopener">Завантажити приклад (PDF, 16 стор.)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:46px">
+      <span class="eyebrow">Тарифи</span>
+      <h2>Підписка для організацій</h2>
+      <p class="muted">Ціни вказані за організацію/команду на місяць. Старт завжди з безкоштовного зразка та пілота — без зобов'язань.</p>
+    </div>
+    <div class="price-grid">
+      <div class="plan">
+        <h3>Daily Brief</h3>
+        <div class="sub">Щоденна розвідка західної преси для однієї команди.</div>
+        <div class="pr">від €290 <span>/ міс</span></div>
+        <ul>
+          <li>Щоденний бриф до 08:00</li>
+          <li>20+ провідних західних медіа</li>
+          <li>Сигнальна шкала + висновки</li>
+          <li>Доставка у Telegram або email</li>
+          <li>Архів випусків</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Запросити доступ</a>
+      </div>
+      <div class="plan feat">
+        <span class="badge">Найпопулярніший</span>
+        <h3>Pro Intelligence</h3>
+        <div class="sub">Преса + аналітичні центри + прямий контакт з аналітиком.</div>
+        <div class="pr">від €690 <span>/ міс</span></div>
+        <ul>
+          <li>Усе з Daily Brief</li>
+          <li>Щотижневий огляд 70+ think tanks</li>
+          <li>Кастомні теми, регіони, актори</li>
+          <li>Щомісячний дзвінок-бриф з аналітиком</li>
+          <li>Пріоритетна підтримка</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Замовити розмову</a>
+      </div>
+      <div class="plan">
+        <h3>Custom Intelligence</h3>
+        <div class="sub">Розвідка під конкретний запит вашої організації.</div>
+        <div class="pr">від €1500 <span>/ міс</span></div>
+        <ul>
+          <li>Bespoke-моніторинг під ваше завдання</li>
+          <li>Ad-hoc алерти та brief-звіти</li>
+          <li>Глибокий аналіз наративів</li>
+          <li>Формати під ваші процеси</li>
+          <li>Рівень державних моніторингів</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Обговорити проєкт</a>
+      </div>
+    </div>
+    <p class="note">Потрібен разовий звіт або моніторинг під подію? Працюю і за проєктною ставкою — напишіть, порахуємо.</p>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="alt">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:46px">
+      <span class="eyebrow">Як почати</span>
+      <h2>Без ризику для вас</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Зразок</h3><p>Надсилаю свіжий випуск брифу під вашу сферу — ви бачите якість на реальному прикладі.</p></div>
+      <div class="step"><h3>Пілот</h3><p>Тиждень-два в тестовому форматі: налаштовуємо теми під ваші реальні рішення.</p></div>
+      <div class="step"><h3>Підписка</h3><p>Переходимо на регулярний формат на тарифі, що підходить вашій команді.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap" style="max-width:820px">
+    <div class="center" style="margin-bottom:40px">
+      <span class="eyebrow">Питання</span>
+      <h2>Поширені питання</h2>
+    </div>
+    <details><summary>Це просто AI-зведення новин?</summary><p>Ні. AI допомагає зібрати й структурувати масив, але оцінку, сигнальну шкалу та висновки робить аналітик із досвідом державних і галузевих моніторингів. Ви платите саме за інтерпретацію.</p></details>
+    <details><summary>Чим це краще, ніж читати джерела самому?</summary><p>Щоб охопити 20+ медіа і 70+ центрів щодня, потрібні години. Ви отримуєте відфільтрований результат із контекстом за 5–10 хвилин читання — і не маєте «сліпих зон».</p></details>
+    <details><summary>Чи можна під наші теми?</summary><p>Так, на тарифах Pro та Custom бриф налаштовується під ваші регіони, актори й запити. Custom — повністю bespoke під завдання організації.</p></details>
+    <details><summary>Як виставляється оплата?</summary><p>Для організацій — за рахунком/договором, помісячно або річним пакетом. Деталі узгоджуємо на короткому дзвінку.</p></details>
+    <details><summary>З чого почати?</summary><p>З безкоштовного зразка. Напишіть — і я надішлю свіжий випуск під вашу сферу того ж дня.</p></details>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="wrap">
+    <div class="band">
+      <h2>Отримайте свіжий бриф під вашу сферу — безкоштовно</h2>
+      <p>Надішліть запит, і я повернуся зі зразком та коротким планом, як адаптувати розвідку під ваші рішення.</p>
+      <div class="hero-ctas" style="justify-content:center">
+        <a href="mailto:alex.mazuka@gmail.com?subject=InsightRadar%20—%20запит%20зразка&body=Вітаю!%20Хочу%20отримати%20зразок%20брифу.%20Сфера/організація:%20" class="btn btn-primary">Написати на email</a>
+        <a href="https://t.me/alexmazuka" class="btn btn-light" target="_blank" rel="noopener">Написати в Telegram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div style="max-width:300px">
+        <a class="logo" href="#top"><span class="dot"></span> InsightRadar</a>
+        <p style="margin-top:12px;font-size:14px;color:#9FB3D1">Стратегічна розвідка західних медіа та аналітичних центрів для українських лідерів рішень.</p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>Продукт</h4>
+          <a href="#value">Що ви отримуєте</a>
+          <a href="#sample">Приклад брифу</a>
+          <a href="#pricing">Тарифи</a>
+        </div>
+        <div>
+          <h4>Контакти</h4>
+          <a href="mailto:alex.mazuka@gmail.com">Email</a>
+          <a href="https://t.me/alexmazuka" target="_blank" rel="noopener">Telegram</a>
+        </div>
+      </div>
+    </div>
+    <div class="copy">© 2026 InsightRadar. Усі права захищені.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('burger').addEventListener('click',function(){
+    document.getElementById('menu').classList.toggle('open');
+  });
+  document.querySelectorAll('#menu a').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('menu').classList.remove('open')});
+  });
+</script>
+</body>
+</html>
